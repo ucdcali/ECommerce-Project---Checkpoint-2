@@ -24,6 +24,13 @@ async function updateProducts() {
               <p>${product.description}</p>
               <p>$${product.price}</p>
               <p>${product.stock} available</p>
+              <form class="mt-3" action="/addToCart" method="POST">
+                <label for="quantity-${product.name}">Quantity:</label>
+                <input type="number" id="quantity-${product.name}" name="quantity" value="1">
+                <input type="hidden" name="productId" value="${product._id}">
+                <button type="submit">Add to Cart</button>
+              </form>
+            </div>
         `;
         container.innerHTML += productElement;
       });
